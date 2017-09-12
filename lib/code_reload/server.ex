@@ -28,6 +28,10 @@ defmodule CodeReload.Server do
     {:noreply, st}
   end
 
+  def terminate(reason, _st) do
+    Logger.info("Terminating: #{inspect reason}")
+  end
+
   defp logger_a do
     Logger.info("logger #{inspect self()} aa!")
     :timer.sleep(5000)
